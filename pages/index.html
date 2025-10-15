@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Projeto ÁGUA INTELIGENTE — sistema de irrigação inteligente para hortas comunitárias com sensores e automação. Saiba como funciona e solicite instalação.">
+  <link rel="icon" href="../images/logo.png" type="image/png">
+  <title>Projeto Água Inteligente</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Ir para conteúdo</a>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="/" class="brand-link"><img src="../images/logo.png" alt="Água Inteligente" class="logo" /><span class="brand-text">Água Inteligente</span></a>
+      </div>
+      <nav class="main-nav" id="mainNav" role="navigation" aria-label="Menu principal">
+        <a href="/">Início</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/como-funciona">Como Funciona</a>
+        <a href="/#implementar">Como Implementar</a>
+        <a href="/contato" class="btn btn-primary">Entre em contato</a>
+        <button class="icon-btn" id="toggleDark" aria-pressed="false" title="Modo escuro" aria-label="Alternar modo escuro">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="mainNav" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <section class="hero" id="sobre">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>Projeto Água Inteligente</h1>
+          <p class="lead">Entenda a importância do uso consciente da água para o ambiente e para a economia!</p>
+          <div class="hero-actions">
+            <a class="btn btn-secondary" href="#como-funciona">Call to action</a>
+            <a class="btn" href="#implementar">Secondary</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="../images/hero.png" alt="Protótipo Água Inteligente">
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="como-funciona">
+      <div class="container">
+        <h2>Como Funciona?</h2>
+        <div class="cards">
+          <article class="card">
+            <img src="../images/arduino.png" alt="Verificador de Umidade">
+            <h3>Verificador de Umidade</h3>
+            <p>Os sensores capturam a umidade e enviam para a placa Arduino, permitindo a automação eficiente da irrigação.</p>
+          </article>
+
+          <article class="card">
+            <img src="../images/bomba.jpg" alt="Acionamento da Bomba">
+            <h3>Acionamento da Bomba</h3>
+            <p>Quando o solo estiver seco, a bomba é acionada automaticamente para garantir a hidratação das plantas.</p>
+          </article>
+
+          <article class="card">
+            <img src="../images/solo.jpg" alt="Verificações de Solo">
+            <h3>Verificações de Solo</h3>
+            <p>Monitoramento completo do solo para identificar falhas e otimizar o consumo de água.</p>
+          </article>
+        </div>  
+    </section>
+
+    <section class="cta" id="implementar">
+      <div class="container cta-inner">
+        <h2>Como Implementar?</h2>
+        <p>Entre em contato pelo formulário para instalar irrigação automática na sua horta.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="/contato">Entre em Contato</a>
+          <a class="btn" href="#como-funciona">Ver mais</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Projeto Água Inteligente</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
+</body>
+</html>
