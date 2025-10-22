@@ -65,18 +65,27 @@ html.dark .btn-primary{background:var(--primary);color:#03220a}
 html.dark .btn-primary{box-shadow:0 6px 18px rgba(108,248,48,0.08)}
 
 /* nav link underline indicator */
-.main-nav a{position:relative;padding:8px 6px}
-.main-nav a::after{content:'';position:absolute;left:6px;right:6px;bottom:2px;height:2px;background:transparent;border-radius:2px;transition:background .14s ease,transform .14s ease}
-.main-nav a:hover::after{background:var(--primary);transform:scaleX(1)}
+.main-nav a{position:relative;padding:10px 8px;display:inline-block;transition:color .18s ease,transform .18s ease}
+.main-nav a::after{content:'';position:absolute;left:12px;right:12px;bottom:6px;height:3px;background:linear-gradient(90deg,var(--primary),rgba(var(--primary-rgb),0.75));border-radius:3px;transform:scaleX(0);transform-origin:left center;transition:transform .22s cubic-bezier(.2,.9,.2,1),opacity .18s ease;opacity:0}
+.main-nav a:hover{transform:translateY(-3px);color:var(--primary)}
+.main-nav a:focus{transform:translateY(-3px);color:var(--primary)}
+.main-nav a:hover::after,.main-nav a:focus::after{transform:scaleX(1);opacity:1}
+
+/* larger touch target for mobile */
+.main-nav a{padding:12px 10px}
 
 /* menu toggle animation */
 .menu-toggle{transition:transform .18s ease}
 .menu-toggle.open{transform:rotate(90deg)}
 
 /* mobile nav improvements */
-@media(max-width:600px){
-  .main-nav{right:0;top:0;height:100%;width:280px;background:linear-gradient(180deg,var(--background),#fff);transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.9,.2,1)}
+/* Expand mobile breakpoint to 900px for off-canvas nav */
+@media(max-width:900px){
+  .main-nav{position:fixed;right:0;top:0;height:100%;width:320px;max-width:92vw;background:linear-gradient(180deg,var(--background),#fff);transform:translateX(110%);transition:transform .32s cubic-bezier(.2,.9,.2,1);flex-direction:column;padding:72px 20px;box-shadow:0 20px 60px rgba(0,0,0,0.18);z-index:9998}
   .main-nav.open{transform:translateX(0)}
+  /* backdrop behind the open menu */
+  .nav-backdrop{position:fixed;inset:0;background:rgba(2,6,8,0.35);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity .28s ease,visibility .28s ease;z-index:9997}
+  .nav-backdrop.show{opacity:1;visibility:visible}
 }
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:var(--header-h)}
 .brand{display:flex;align-items:center;gap:12px}
@@ -115,6 +124,31 @@ html.dark .btn-primary{box-shadow:0 6px 18px rgba(108,248,48,0.08)}
 .card img{width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:12px}
 .card h3{margin:8px 0;color:var(--text)}
 .card p{color:var(--muted);font-size:14px}
+
+/* Card hover lift */
+.card{transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s ease}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(27,42,18,0.12)}
+
+/* Hero image float */
+.hero-image img{transition:transform .8s ease;transform-origin:center}
+.hero-image img.float{transform:translateY(-8px) scale(1.02)}
+
+/* Buttons micro interaction */
+.btn, .btn-primary, .btn-secondary{transition:transform .16s ease,box-shadow .16s ease}
+.btn:hover,.btn:focus{transform:translateY(-4px)}
+
+/* Link subtle underline animation */
+.main-nav a{transition:color .14s ease,transform .18s ease}
+.main-nav a.animated-in{opacity:0;transform:translateX(8px)}
+.main-nav a.animated-in.show{opacity:1;transform:none}
+
+/* Nav items slide in when menu opens */
+@keyframes navSlideIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+.main-nav.open a{animation:navSlideIn .36s ease both}
+
+/* Fade in for hero text */
+.hero-text{opacity:0;transform:translateY(8px);transition:all .7s cubic-bezier(.2,.9,.2,1)}
+.hero-text.show{opacity:1;transform:none}
 
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
 .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px}
@@ -157,7 +191,6 @@ html.dark .btn-primary{box-shadow:0 6px 18px rgba(108,248,48,0.08)}
 
 /* Ajustes mobile para o formulário */
 @media(max-width:900px){
-  .main-nav{right:0;top:0;height:100%;width:280px;background:linear-gradient(180deg,var(--background),#fff);transform:translateX(100%);transition:transform .32s cubic-bezier(.2,.9,.2,1);flex-direction:column;padding-top:64px}
   #requestForm textarea{min-height:120px}
 }
 
@@ -177,13 +210,27 @@ html.dark .btn-primary{box-shadow:0 6px 18px rgba(108,248,48,0.08)}
 /* Compensação para header fixo */
 main{padding-top:var(--header-h)}
 @media(max-width:600px){
-  .main-nav{position:fixed;right:0;top:0;height:100%;width:260px;background:linear-gradient(180deg,var(--background),#fff);flex-direction:column;padding:60px 20px;transform:translateX(100%);transition:transform .28s ease}
-  .main-nav.open{transform:translateX(0)}
   .menu-toggle{display:block}
   .main-nav a{padding:10px 0}
   .cards{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr}
 }
+
+/* Hamburger visual improvements */
+.menu-toggle{display:none;background:transparent;border:0;font-size:20px;padding:8px;border-radius:8px;cursor:pointer}
+.menu-toggle .bar{display:block;width:20px;height:2px;background:var(--text);border-radius:2px;position:relative;transition:transform .18s ease,opacity .18s ease}
+.menu-toggle .bar::before,.menu-toggle .bar::after{content:'';position:absolute;left:0;width:20px;height:2px;background:var(--text);border-radius:2px;transition:transform .22s cubic-bezier(.2,.9,.2,1)}
+.menu-toggle .bar::before{top:-6px}
+.menu-toggle .bar::after{top:6px}
+.menu-toggle.open .bar{background:transparent}
+.menu-toggle.open .bar::before{transform:translateY(6px) rotate(45deg)}
+.menu-toggle.open .bar::after{transform:translateY(-6px) rotate(-45deg)}
+
+/* ensure nav links sit to the right on wide screens */
+.main-nav{display:flex;gap:18px;align-items:center;margin-left:auto}
+
+/* improve focus handling inside the menu */
+.main-nav a, .main-nav .icon-btn, .main-nav .btn{outline-offset:3px}
 
 @media(max-width:420px){
   .brand-text{font-size:15px}

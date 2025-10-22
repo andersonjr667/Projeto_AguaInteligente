@@ -1,25 +1,123 @@
-// Menu mobile toggle
+// Menu mobile toggle with backdrop and focus management
 const menuToggle = document.getElementById('menuToggle');
 const mainNav = document.getElementById('mainNav');
-menuToggle?.addEventListener('click', (e)=>{
-  const isOpen = mainNav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(isOpen));
-  // animate toggle
-  menuToggle.classList.toggle('open', isOpen);
+
+// create backdrop element once (CSS class .nav-backdrop)
+let navBackdrop = document.querySelector('.nav-backdrop');
+if(!navBackdrop){
+  navBackdrop = document.createElement('div');
+  navBackdrop.className = 'nav-backdrop';
+  document.body.appendChild(navBackdrop);
+}
+
+function openMenu(){
+  if(!mainNav || !menuToggle) return;
+  mainNav.classList.add('open');
+  menuToggle.classList.add('open');
+  menuToggle.setAttribute('aria-expanded','true');
+  navBackdrop.classList.add('show');
+  // move focus into first focusable item in menu (link)
+  const firstLink = mainNav.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
+  if(firstLink) firstLink.focus();
+}
+
+function closeMenu(){
+  if(!mainNav || !menuToggle) return;
+  mainNav.classList.remove('open');
+  menuToggle.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded','false');
+  navBackdrop.classList.remove('show');
+  // return focus to toggle for keyboard users
+  menuToggle.focus();
+}
+
+// simple focus trap: keep tab focus inside the mainNav when open
+document.addEventListener('keydown', (e)=>{
+  if(e.key !== 'Tab') return;
+  if(!mainNav || !mainNav.classList.contains('open')) return;
+  const focusable = mainNav.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+  if(!focusable || focusable.length === 0) return;
+  const first = focusable[0];
+  const last = focusable[focusable.length -1];
+  const active = document.activeElement;
+  if(e.shiftKey){
+    if(active === first){
+      e.preventDefault();
+      last.focus();
+    }
+  } else {
+    if(active === last){
+      e.preventDefault();
+      first.focus();
+    }
+  }
 });
 
-// close menu when clicking outside (mobile)
+menuToggle?.addEventListener('click', (e)=>{
+  const isOpen = mainNav.classList.contains('open');
+  if(isOpen) closeMenu(); else openMenu();
+});
+
+// close when clicking backdrop
+navBackdrop.addEventListener('click', ()=> closeMenu());
+
+// close menu when clicking outside (fallback for older browsers)
 document.addEventListener('click', (e)=>{
   if(!mainNav || !menuToggle) return;
   const isOpen = mainNav.classList.contains('open');
   if(!isOpen) return;
   const target = e.target;
-  if(!mainNav.contains(target) && !menuToggle.contains(target)){
-    mainNav.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded','false');
-    menuToggle.classList.remove('open');
+  if(!mainNav.contains(target) && !menuToggle.contains(target) && !navBackdrop.contains(target)){
+    closeMenu();
   }
 });
+
+// Staggered reveal on load for cards and gallery, hero reveal and floating image
+window.addEventListener('load', ()=>{
+  const items = Array.from(document.querySelectorAll('.card, .gallery img'));
+  items.forEach((el, i)=>{
+    setTimeout(()=>{
+      el.style.opacity = 1;
+      el.style.transform = 'none';
+    }, 120 + i * 80);
+  });
+
+  // hero text reveal
+  const heroText = document.querySelector('.hero-text');
+  if(heroText) setTimeout(()=> heroText.classList.add('show'), 180);
+
+  // hero image float little animation loop
+  const heroImg = document.querySelector('.hero-image img');
+  if(heroImg){
+    setTimeout(()=> heroImg.classList.add('float'), 600);
+    setInterval(()=>{
+      heroImg.classList.toggle('float');
+    }, 3600);
+  }
+});
+
+// animate menu links when menu opens (stagger)
+function animateMenuLinks(open){
+  if(!mainNav) return;
+  const links = Array.from(mainNav.querySelectorAll('a, button.icon-btn'));
+  links.forEach((lnk, idx)=>{
+    if(open){
+      lnk.classList.add('animated-in');
+      setTimeout(()=> lnk.classList.add('show'), 80 + idx * 60);
+    } else {
+      lnk.classList.remove('show');
+      setTimeout(()=> lnk.classList.remove('animated-in'), 260);
+    }
+  });
+}
+
+// wrap openMenu/closeMenu to include animation of links
+if(typeof openMenu === 'function' && typeof closeMenu === 'function'){
+  const __openMenu = openMenu;
+  const __closeMenu = closeMenu;
+  openMenu = function(){ __openMenu(); animateMenuLinks(true); };
+  closeMenu = function(){ animateMenuLinks(false); __closeMenu(); };
+}
 
 // close menu on Escape
 document.addEventListener('keydown', (e)=>{
