@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Perguntas frequentes sobre o Projeto Água Inteligente. Tire suas dúvidas sobre instalação, funcionamento e custos.">
+  <link rel="icon" href="../images/logo.png" type="image/png">
+  <title>FAQ - Água Inteligente</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Ir para conteúdo</a>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="/" class="brand-link"><img src="../images/logo.png" alt="Água Inteligente" class="logo" /><span class="brand-text">Água Inteligente</span></a>
+      </div>
+      <nav class="main-nav" id="mainNav" role="navigation" aria-label="Menu principal">
+        <a href="/">Início</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/como-funciona">Como Funciona</a>
+        <a href="/faq">FAQ</a>
+        <a href="/#doacao" class="nav-donate">Doar</a>
+        <a href="/contato" class="btn btn-primary">Entre em contato</a>
+        <button class="icon-btn" id="toggleDark" aria-pressed="false" title="Modo escuro" aria-label="Alternar modo escuro">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="mainNav" aria-expanded="false">
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <section class="faq-page">
+      <div class="container">
+        <div class="faq-header">
+          <h1>Perguntas Frequentes</h1>
+          <p class="lead">Encontre respostas para as dúvidas mais comuns sobre o Projeto Água Inteligente</p>
+        </div>
+
+        <div class="faq-categories">
+          <button class="category-btn active" data-category="all">Todas</button>
+          <button class="category-btn" data-category="instalacao">Instalação</button>
+          <button class="category-btn" data-category="funcionamento">Funcionamento</button>
+          <button class="category-btn" data-category="custos">Custos</button>
+          <button class="category-btn" data-category="manutencao">Manutenção</button>
+        </div>
+
+        <div class="faq-list">
+          <!-- Instalação -->
+          <div class="faq-item" data-category="instalacao">
+            <button class="faq-question" aria-expanded="false">
+              <span>Como funciona a instalação do sistema?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>A instalação é simples e pode ser feita em poucas horas. Nossa equipe realiza uma visita técnica para avaliar sua horta, define os melhores pontos para os sensores e instala todo o sistema. Você só precisa fornecer acesso à água e energia elétrica próxima à área.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-category="instalacao">
+            <button class="faq-question" aria-expanded="false">
+              <span>Qual o tamanho mínimo de horta para instalar?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>O sistema pode ser adaptado para hortas de qualquer tamanho, desde pequenos canteiros de 5m² até grandes áreas agrícolas. Para hortas menores que 10m², recomendamos um kit básico com 2 sensores.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-category="instalacao">
+            <button class="faq-question" aria-expanded="false">
+              <span>Preciso ter conhecimento técnico para usar?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Não! O sistema foi projetado para ser simples e intuitivo. Após a instalação, oferecemos um treinamento básico de 30 minutos e você estará pronto para usar. Tudo funciona automaticamente.</p>
+            </div>
+          </div>
+
+          <!-- Funcionamento -->
+          <div class="faq-item" data-category="funcionamento">
+            <button class="faq-question" aria-expanded="false">
+              <span>Como o sistema sabe quando irrigar?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Sensores de umidade instalados no solo monitoram constantemente o nível de água. Quando a umidade cai abaixo do ideal para suas plantas, o Arduino ativa automaticamente a bomba de irrigação até atingir o nível adequado.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-category="funcionamento">
+            <button class="faq-question" aria-expanded="false">
+              <span>Posso controlar manualmente a irrigação?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Sim! Embora o sistema seja automático, você pode ativar ou desativar a irrigação manualmente a qualquer momento através do painel de controle ou aplicativo mobile (em desenvolvimento).</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-category="funcionamento">
+            <button class="faq-question" aria-expanded="false">
+              <span>O sistema funciona com energia solar?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Sim! Oferecemos uma versão com painel solar para locais sem acesso fácil à energia elétrica. O painel fornece energia suficiente para o Arduino e a bomba, com bateria de backup para dias nublados.</p>
+            </div>
+          </div>
+
+          <!-- Custos -->
+          <div class="faq-item" data-category="custos">
+            <button class="faq-question" aria-expanded="false">
+              <span>Qual o custo de instalação?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>O custo varia conforme o tamanho da horta. Para hortas comunitárias, trabalhamos com doações e financiamento coletivo para tornar o projeto acessível. Entre em contato para um orçamento personalizado.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-category="custos">
+            <button class="faq-question" aria-expanded="false">
+              <span>Há custo mensal de manutenção?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Não há mensalidade. O único custo recorrente é a energia elétrica (muito baixa) e eventual troca de componentes após anos de uso. Oferecemos garantia de 2 anos para todos os componentes.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-category="custos">
+            <button class="faq-question" aria-expanded="false">
+              <span>Quanto economizo em água?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Em média, nossos usuários relatam economia de 40-60% no consumo de água comparado à irrigação manual ou por timer. O sistema irriga apenas quando necessário, evitando desperdício.</p>
+            </div>
+          </div>
+
+          <!-- Manutenção -->
+          <div class="faq-item" data-category="manutencao">
+            <button class="faq-question" aria-expanded="false">
+              <span>Preciso fazer manutenção periódica?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>A manutenção é mínima. Recomendamos limpar os sensores a cada 3 meses e verificar se os tubos de irrigação estão desobstruídos. Fornecemos um guia completo de manutenção preventiva.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-category="manutencao">
+            <button class="faq-question" aria-expanded="false">
+              <span>O que fazer se algo parar de funcionar?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Oferecemos suporte técnico gratuito por e-mail e WhatsApp. Para problemas mais complexos, nossa equipe pode realizar visita técnica. Durante o período de garantia, todas as peças são substituídas sem custo.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" data-category="manutencao">
+            <button class="faq-question" aria-expanded="false">
+              <span>Os sensores resistem à chuva?</span>
+              <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 10l5 5 5-5z"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Sim! Todos os componentes são à prova d'água (IP65). Os sensores ficam enterrados no solo e o Arduino fica em uma caixa hermética. O sistema foi projetado para ambientes externos.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-cta">
+          <h2>Não encontrou sua resposta?</h2>
+          <p>Entre em contato conosco e teremos prazer em ajudar!</p>
+          <a href="/contato" class="btn btn-primary">Fale Conosco</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Projeto Água Inteligente</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
+</body>
+</html>

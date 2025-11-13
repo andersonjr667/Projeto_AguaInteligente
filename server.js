@@ -69,6 +69,10 @@ app.get('/como-funciona', (req, res) => {
 	res.sendFile(path.join(__dirname, 'pages', 'como-funciona.html'));
 });
 
+app.get('/faq', (req, res) => {
+	res.sendFile(path.join(__dirname, 'pages', 'faq.html'));
+});
+
 // Start server with error handling and simple fallback to next port if in use
 function startServer(port, triedPorts = new Set()){
 	if(triedPorts.has(port)) return;

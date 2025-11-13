@@ -17,7 +17,8 @@
         <a href="/">Início</a>
         <a href="/sobre">Sobre</a>
         <a href="/como-funciona">Como Funciona</a>
-        <a href="/#implementar">Como Implementar</a>
+        <a href="/faq">FAQ</a>
+        <a href="/#doacao" class="nav-donate">Doar</a>
         <a href="/contato" class="btn btn-primary">Entre em contato</a>
         <button class="icon-btn" id="toggleDark" aria-pressed="false" title="Modo escuro" aria-label="Alternar modo escuro">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -32,41 +33,126 @@
   </header>
 
   <main id="mainContent">
-    <section class="how" id="how-page">
+    <section class="how-page">
       <div class="container">
         <h1>Como Funciona</h1>
-        <p>Nosso projeto consiste em um sistema automatizado de irrigação inteligente. Sensores de umidade são posicionados próximos às mudas, monitorando constantemente o nível de água no solo. Os valores captados por cada sensor são enviados ao Arduino Nano, que realiza o cálculo da média da umidade.</p>
+        <p class="lead">Nosso projeto consiste em um sistema automatizado de irrigação inteligente. Sensores de umidade são posicionados próximos às mudas, monitorando constantemente o nível de água no solo.</p>
 
-        <h2>Fluxo de funcionamento</h2>
-        <ol>
-          <li>Leitura: sensores de umidade medem constantemente o teor de água no solo.</li>
-          <li>Envio: cada sensor transmite sua leitura ao Arduino Nano.</li>
-          <li>Processamento: o Arduino calcula a média das leituras e compara com o limiar ideal.</li>
-          <li>Ação: se a média for inferior ao valor desejado, o Arduino ativa o módulo relé.</li>
-          <li>Irrigação: o relé aciona a bomba, que distribui água pela mangueira e canos até as plantas.</li>
-          <li>Parada: quando os sensores indicam que o solo alcançou a umidade adequada, o Arduino desliga a bomba.</li>
-        </ol>
+        <h2>Fluxo de Funcionamento</h2>
+        <div class="steps-container">
+          <div class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Leitura</h3>
+              <p>Sensores de umidade medem constantemente o teor de água no solo.</p>
+            </div>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Envio</h3>
+              <p>Cada sensor transmite sua leitura ao Arduino Nano.</p>
+            </div>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Processamento</h3>
+              <p>O Arduino calcula a média das leituras e compara com o limiar ideal.</p>
+            </div>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Ação</h3>
+              <p>Se a média for inferior ao valor desejado, o Arduino ativa o módulo relé.</p>
+            </div>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>Irrigação</h3>
+              <p>O relé aciona a bomba, que distribui água pela mangueira e canos até as plantas.</p>
+            </div>
+          </div>
+          
+          <div class="step-item">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h3>Parada</h3>
+              <p>Quando os sensores indicam que o solo alcançou a umidade adequada, o Arduino desliga a bomba.</p>
+            </div>
+          </div>
+        </div>
 
-        <h2>Hardware principal</h2>
-        <ul>
-          <li>Arduino Nano (controlador)</li>
-          <li>Sensores de umidade do solo</li>
-          <li>Módulo relé (para controlar a bomba)</li>
-          <li>Bomba submersível ou de superfície, conforme projeto</li>
-          <li>Fontes de alimentação adequadas e fiação</li>
-        </ul>
+        <h2>Hardware Principal</h2>
+        <div class="hardware-grid">
+          <div class="hardware-item">
+            <div class="hardware-icon">
+              <img src="../images/arduino-nano.jpg" alt="Arduino Nano">
+            </div>
+            <h4>Arduino Nano</h4>
+            <p>Controlador principal</p>
+          </div>
+          <div class="hardware-item">
+            <div class="hardware-icon">
+              <img src="../images/sensor-umidade.jpg" alt="Sensor de Umidade">
+            </div>
+            <h4>Sensores</h4>
+            <p>Medidores de umidade do solo</p>
+          </div>
+          <div class="hardware-item">
+            <div class="hardware-icon">
+              <img src="../images/modulo-rele.jpg" alt="Módulo Relé">
+            </div>
+            <h4>Módulo Relé</h4>
+            <p>Controla a bomba</p>
+          </div>
+          <div class="hardware-item">
+            <div class="hardware-icon">
+              <img src="../images/bomba-agua.jpg" alt="Bomba d'água">
+            </div>
+            <h4>Bomba</h4>
+            <p>Submersível ou de superfície</p>
+          </div>
+        </div>
 
         <h2>Benefícios</h2>
-        <ul>
-          <li>Irrigação precisa e econômica.</li>
-          <li>Redução do desperdício de água.</li>
-          <li>Automação acessível e de baixo custo.</li>
-          <li>Melhoria na saúde das plantas e produtividade da horta.</li>
-        </ul>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            <p>Irrigação precisa e econômica</p>
+          </div>
+          <div class="benefit-card">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            <p>Redução do desperdício de água</p>
+          </div>
+          <div class="benefit-card">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            <p>Automação acessível e de baixo custo</p>
+          </div>
+          <div class="benefit-card">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+            <p>Melhoria na saúde das plantas e produtividade</p>
+          </div>
+        </div>
 
-        <div class="mt-28">
+        <div class="mt-28 cta-buttons">
           <a class="btn btn-primary" href="/">Voltar para o Início</a>
-          <a class="btn" href="/sobre">Ver o Manifesto</a>
+          <a class="btn btn-secondary" href="/sobre">Ver o Manifesto</a>
+          <a class="btn" href="/#doacao">Apoiar o Projeto</a>
         </div>
       </div>
     </section>

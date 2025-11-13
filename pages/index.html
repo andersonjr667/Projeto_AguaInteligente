@@ -19,7 +19,8 @@
         <a href="/">Início</a>
         <a href="/sobre">Sobre</a>
         <a href="/como-funciona">Como Funciona</a>
-        <a href="/#implementar">Como Implementar</a>
+        <a href="/faq">FAQ</a>
+        <a href="/#doacao" class="nav-donate">Doar</a>
         <a href="/contato" class="btn btn-primary">Entre em contato</a>
         <button class="icon-btn" id="toggleDark" aria-pressed="false" title="Modo escuro" aria-label="Alternar modo escuro">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -41,11 +42,146 @@
           <p class="lead">Entenda a importância do uso consciente da água para o ambiente e para a economia!</p>
           <div class="hero-actions">
             <a class="btn btn-secondary" href="#como-funciona">Saiba Mais</a>
-            <a class="btn" href="#implementar">Como Implementar</a>
+            <a class="btn" href="#doacao">Fazer Doação</a>
           </div>
         </div>
         <div class="hero-image">
           <img src="../images/hero.png" alt="Protótipo Água Inteligente">
+        </div>
+      </div>
+    </section>
+
+    <section class="donation donation-highlight" id="doacao">
+      <div class="container">
+        <div class="donation-header">
+          <div class="donation-appeal">
+            <span class="donation-badge">🌱 Faça a Diferença</span>
+            <h2>Apoie Nossa Missão</h2>
+            <p class="donation-lead">Sua doação ajuda a levar tecnologia de irrigação inteligente para mais comunidades, economizando água e melhorando a produção de alimentos.</p>
+          </div>
+          <div class="donation-raised">
+            <div class="raised-amount">
+              <span class="currency">R$</span>
+              <span class="amount" id="totalRaised">0</span>
+            </div>
+            <div class="raised-label">arrecadados até agora</div>
+            <div class="raised-goal">Meta: R$ 50.000</div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 0%" id="progressFill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="donation-content">
+          <div class="donation-info">
+            <div class="donation-benefits">
+              <h3>Como sua doação ajuda:</h3>
+              <ul>
+                <li><strong>R$ 50</strong> - Sensores de umidade para 1 horta</li>
+                <li><strong>R$ 150</strong> - Kit completo Arduino + bomba</li>
+                <li><strong>R$ 500</strong> - Sistema completo para horta comunitária</li>
+                <li><strong>R$ 1.000+</strong> - Múltiplas instalações e manutenção</li>
+              </ul>
+            </div>
+
+            <div class="donation-impact">
+              <svg class="impact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+              </svg>
+              <p><em>100% das doações vão diretamente para aquisição de equipamentos e instalações.</em></p>
+            </div>
+          </div>
+
+          <div class="donation-form-container">
+            <div class="donation-methods">
+              <button class="method-tab active" data-method="pix">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.8 3L3 7.8V16.2L7.8 21H16.2L21 16.2V7.8L16.2 3H7.8Z"/>
+                </svg>
+                PIX
+              </button>
+              <button class="method-tab" data-method="card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="5" width="20" height="14" rx="2" stroke-width="2"/>
+                  <line x1="2" y1="10" x2="22" y2="10" stroke-width="2"/>
+                </svg>
+                Cartão
+              </button>
+            </div>
+
+            <div class="donation-panel active" id="pix-panel">
+              <h3>Doar via PIX</h3>
+              <div class="pix-options">
+                <button class="donation-amount" data-amount="50">R$ 50</button>
+                <button class="donation-amount" data-amount="100">R$ 100</button>
+                <button class="donation-amount" data-amount="150">R$ 150</button>
+                <button class="donation-amount" data-amount="outro">Outro valor</button>
+              </div>
+              <div class="custom-amount-input" style="display:none;">
+                <label for="customAmount">Valor personalizado (R$)</label>
+                <input type="number" id="customAmount" min="1" step="0.01" placeholder="Digite o valor">
+              </div>
+              <div class="pix-info">
+                <p><strong>Chave PIX:</strong></p>
+                <div class="pix-key">
+                  <code id="pixKey">aguainteligente@exemplo.com.br</code>
+                  <button class="copy-btn" id="copyPixBtn" aria-label="Copiar chave PIX">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="9" y="9" width="13" height="13" rx="2" stroke-width="2"/>
+                      <path d="M5 15H4C2.89543 15 2 14.1046 2 13V4C2 2.89543 2.89543 2 4 2H13C14.1046 2 15 2.89543 15 4V5" stroke-width="2"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="pix-qrcode" id="qrcodeContainer" style="display:none;">
+                  <!-- QR Code will be generated here -->
+                </div>
+                <button class="btn btn-qrcode" id="generateQRBtn">
+                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;margin-right:8px;">
+                    <rect x="3" y="3" width="8" height="8" rx="1"/>
+                    <rect x="3" y="13" width="8" height="8" rx="1"/>
+                    <rect x="13" y="3" width="8" height="8" rx="1"/>
+                    <rect x="13" y="13" width="4" height="4" rx="1"/>
+                    <rect x="17" y="17" width="4" height="4" rx="1"/>
+                  </svg>
+                  Gerar QR Code
+                </button>
+              </div>
+            </div>
+
+            <div class="donation-panel" id="card-panel">
+              <h3>Doar via Cartão</h3>
+              <form id="donationForm" class="donation-form">
+                <div class="form-group">
+                  <label for="donorName">Nome completo</label>
+                  <input type="text" id="donorName" name="name" required>
+                </div>
+                <div class="form-group">
+                  <label for="donorEmail">E-mail</label>
+                  <input type="email" id="donorEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="donationValue">Valor da doação (R$)</label>
+                  <input type="number" id="donationValue" name="amount" min="1" step="0.01" required>
+                </div>
+                <div class="form-group">
+                  <label for="cardNumber">Número do cartão</label>
+                  <input type="text" id="cardNumber" name="card" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cardExpiry">Validade</label>
+                    <input type="text" id="cardExpiry" name="expiry" placeholder="MM/AA" maxlength="5" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="cardCVV">CVV</label>
+                    <input type="text" id="cardCVV" name="cvv" placeholder="123" maxlength="3" required>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-donate">Doar Agora</button>
+                <div id="donationStatus" class="donation-status"></div>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -84,6 +220,71 @@
         </div>
       </div>
     </section>
+
+    <section class="impact" id="impacto">
+      <div class="container">
+        <h2>Nossa Meta de Impacto</h2>
+        <p class="impact-intro">Estamos começando essa jornada! Com sua ajuda, planejamos alcançar:</p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2.69L14.5 7.82L20 8.61L16 12.5L16.91 18L12 15.4L7.09 18L8 12.5L4 8.61L9.5 7.82L12 2.69Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 15.4V8M8 12.5L12 8L16 12.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="stat-number">10.000+</div>
+            <div class="stat-label">Litros de água a economizar</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="currentColor"/>
+                <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="white"/>
+                <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" fill="currentColor"/>
+                <rect x="11" y="2" width="2" height="4" fill="white"/>
+                <rect x="11" y="18" width="2" height="4" fill="white"/>
+                <rect x="2" y="11" width="4" height="2" fill="white"/>
+                <rect x="18" y="11" width="4" height="2" fill="white"/>
+              </svg>
+            </div>
+            <div class="stat-number">50</div>
+            <div class="stat-label">Hortas comunitárias como meta</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 13H5.5L7.5 7L9.5 17L11.5 11L13 13H21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="17" cy="13" r="3" fill="currentColor"/>
+                <path d="M15.5 11.5L18.5 14.5M18.5 11.5L15.5 14.5" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="stat-number">80%</div>
+            <div class="stat-label">Redução esperada no desperdício</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="9" cy="7" r="4" fill="currentColor"/>
+                <path d="M3 21V19C3 16.7909 4.79086 15 7 15H11C13.2091 15 15 16.7909 15 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="17" cy="9" r="3" fill="currentColor" opacity="0.7"/>
+                <path d="M17 15H19C20.6569 15 22 16.3431 22 18V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              </svg>
+            </div>
+            <div class="stat-number">1.000+</div>
+            <div class="stat-label">Famílias a serem beneficiadas</div>
+          </div>
+        </div>
+        <div class="impact-footer">
+          <p>
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px;vertical-align:middle;margin-right:8px;">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+            <strong>Projeto em fase inicial.</strong> Faça parte dessa transformação desde o começo!
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -92,6 +293,9 @@
     </div>
   </footer>
 
+  <!-- QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  
   <script src="../js/script.js"></script>
   <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">↑</button>
 </body>
