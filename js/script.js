@@ -257,7 +257,7 @@ backToTop?.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smoot
 // Donation section functionality
 // PIX Configuration
 const pixConfig = {
-  pixKey: '+55319715338825',
+  pixKey: '+5531971533882',
   merchantName: 'ANDERSON L DA S JUNIOR',
   merchantCity: 'BELO HORIZONT',
   txid: 'DOACAO' + Date.now().toString().slice(-10),

@@ -37,7 +37,7 @@
 .back-to-top.show{display:flex}
 .back-to-top:focus{outline:3px solid rgba(var(--accent-rgb),0.18)}
 *{box-sizing:border-box}
-body{font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,var(--background),#f6fff7);margin:0}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--text);background:var(--background);margin:0;transition:background 0.3s ease, color 0.3s ease}
 .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
 .skip-link{position:fixed;left:-9999px;top:auto;background:#0b6623;color:#fff;padding:8px 12px;border-radius:8px;z-index:9999;transition:all .18s ease;box-shadow:0 6px 18px rgba(0,0,0,0.12)}
 .skip-link:focus{left:12px;top:12px;outline:none;transform:none}
@@ -473,6 +473,12 @@ html.dark .donation-form input{background:rgba(255,255,255,0.05);border-color:rg
 html.dark .stat-card{background:rgba(255,255,255,0.05);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
 html.dark .impact-footer p{background:rgba(var(--primary-rgb),0.15);border-color:rgba(var(--primary-rgb),0.3)}
 html.dark .card{background:rgba(255,255,255,0.05);border-color:rgba(var(--primary-rgb),0.15)}
+html.dark .hero-text h1{-webkit-text-fill-color:var(--primary);background:none}
+html.dark .hero{background:var(--background)}
+html.dark .how{background:var(--background)}
+html.dark .impact{background:var(--background)}
+html.dark .cta{background:rgba(255,255,255,0.03)}
+html.dark .site-footer{background:rgba(0,0,0,0.4);border-top:1px solid rgba(var(--primary-rgb),0.2)}
 html.dark .donation-benefits{background:rgba(var(--primary-rgb),0.1)}
 html.dark .donation-impact{background:rgba(var(--accent-rgb),0.15)}
 html.dark .btn-qrcode{background:rgba(var(--accent-rgb),0.8)}
