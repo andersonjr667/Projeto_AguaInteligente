@@ -257,9 +257,9 @@ backToTop?.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smoot
 // Donation section functionality
 // PIX Configuration
 const pixConfig = {
-  pixKey: 'aguainteligente@exemplo.com.br',
-  merchantName: 'PROJETO AGUA INTELIGENTE',
-  merchantCity: 'SAO PAULO',
+  pixKey: '+55319715338825',
+  merchantName: 'ANDERSON L DA S JUNIOR',
+  merchantCity: 'BELO HORIZONT',
   txid: 'DOACAO' + Date.now().toString().slice(-10),
   amount: 0 // Will be updated based on user selection
 };
